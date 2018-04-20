@@ -1,0 +1,22 @@
+def CountandSay(n):
+    if n==1:
+        return "1";
+    tmp=CountandSay(n-1);
+    length=len(tmp)
+    res=""
+    prev=tmp[0]
+    count=0
+    for i in range(length):
+        curr=tmp[i]
+        if curr != prev:
+            res = res
+            res += str(count)
+            res += prev
+            prev=curr
+            count = 1
+        else:
+            count += 1    
+    res = res
+    res += str(count)
+    res += prev
+    return res
