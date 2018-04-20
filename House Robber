@@ -1,0 +1,18 @@
+# You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+# Given a list of non-negative integers representinclass Solution:
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        sum1=0    
+        sum2=0
+        for i in range(len(nums)):
+            if (i % 2==0):
+                sum1=max((sum1+nums[i]),sum2)
+            else:
+                sum2=max((sum2+nums[i]),sum1)
+        max_sum=max(sum1,sum2)
+        return max_sumg the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+
