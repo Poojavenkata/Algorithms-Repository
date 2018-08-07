@@ -1,0 +1,39 @@
+class Solution:
+    def setZeroes(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: void Do not return anything, modify matrix in-place instead.
+        """
+        m=len(matrix)
+        n=len(matrix[0])
+        flag_m=0
+        flag_n=0
+        for w in range(1,m):
+            if matrix[w][0]==0:
+                flag_m=1
+        for x in range(1,n):
+            if matrix[0][x]==0:
+                flag_n=1
+        if matrix[0][0]==0:
+            flag_m=1
+            flag_n=1
+               
+        for i in range(1,m):
+            for j in range(1,n):
+                if (matrix[i][j]==0):
+                    matrix[i][0]=0
+                    matrix[0][j]=0
+        for p in range(1,m):
+            if (matrix[p][0]==0):
+                for s in range(1,n):
+                    matrix[p][s]=0
+        for q in range(1,n):
+            if (matrix[0][q]==0):
+                for k in range(1,m):
+                    matrix[k][q]=0
+        if(flag_m==1):
+            for y in range(0,m):
+                matrix[y][0]=0
+        if(flag_n==1):
+            for z in range(0,n):
+                matrix[0][z]=0
