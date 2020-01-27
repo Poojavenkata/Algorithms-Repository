@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s=''.join(ch for ch in s if ch.isalnum())
+        s=s.lower()
+        start=0
+        end=len(s)-1 
+        while(start<=end):
+            if (s[start]==s[end]):
+                start=start+1
+                end=end-1
+            else:
+                return False
+        return True
